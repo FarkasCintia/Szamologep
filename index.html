@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Számológép</title>
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>
+    <h1>Számológép</h1>
+    
+    <!-- kijelző -->
+    <div id="display" class="my-mb-1">
+        <span id="displayNumber1">0</span>
+        <span id="displayOperand"></span>
+        <span id="displayNumber2"></span>
+    </div>
+
+    <!-- szám gombok -->
+    <div id="number-buttons-wrapper" class="my-mb-1">
+        <button id="button0">0</button>
+        <button id="button1">1</button>
+        <button id="button2">2</button>
+        <button id="button3">3</button>
+        <button id="button4">4</button>
+        <button id="button5">5</button>
+        <button id="button6">6</button>
+        <button id="button7">7</button>
+        <button id="button8">8</button>
+        <button id="button9">9</button>
+    </div>
+
+    <!-- operandus gombok -->
+    <div id="operand-buttons-wrapper" class="my-mb-1">
+        <button id="buttonAdd">+</button>
+        <button id="buttonMinus">-</button>
+        <button id="buttonTimes">*</button>
+        <button id="buttonDivide">/</button>
+        <button id="buttonEquals">=</button>
+
+        <button id="buttonTorol"> 
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-backspace-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+          </svg> 
+        </button>
+    </div>
+
+
+
+
+    <script src="my.js"></script>
+</body>
+</html>
