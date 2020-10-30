@@ -1,6 +1,6 @@
 //Állapotok. konstatnsokat
 const STATUS_FIRSTNUM = "firstnum";
-const STATUS_SECONDNUM  = "secondnum";
+const STATUS_SECONDNUM = "secondnum";
 const STATUS_OPERAND = "operand";
 const STATUS_DONE = "done";
 
@@ -40,66 +40,96 @@ let button9 = document.getElementById("button9");
 
 //Események, esemény kezelés: Fliratkozunk az eseményre
 //operandus click
-buttonAdd.addEventListener("click", function(){OnOperandClick("+")});
-buttonMinus.addEventListener("click", function(){OnOperandClick("-")});
-buttonTimes.addEventListener("click", function(){OnOperandClick("*")});
-buttonDivide.addEventListener("click", function(){OnOperandClick("/")});
-buttonEquals.addEventListener("click", function(){OnOperandClick("=")});
+buttonAdd.addEventListener("click", function () {
+    OnOperandClick("+")
+});
+buttonMinus.addEventListener("click", function () {
+    OnOperandClick("-")
+});
+buttonTimes.addEventListener("click", function () {
+    OnOperandClick("*")
+});
+buttonDivide.addEventListener("click", function () {
+    OnOperandClick("/")
+});
+buttonEquals.addEventListener("click", function () {
+    OnOperandClick("=")
+});
 buttonTorol.addEventListener("click", TorolClick);
 
 //number click
-button0.addEventListener("click", function(){OnNumberClick(0)});
-button1.addEventListener("click", function(){OnNumberClick(1)});
-button2.addEventListener("click", function(){OnNumberClick(2)});
-button3.addEventListener("click", function(){OnNumberClick(3)});
-button4.addEventListener("click", function(){OnNumberClick(4)});
-button5.addEventListener("click", function(){OnNumberClick(5)});
-button6.addEventListener("click", function(){OnNumberClick(6)});
-button7.addEventListener("click", function(){OnNumberClick(7)});
-button8.addEventListener("click", function(){OnNumberClick(8)});
-button9.addEventListener("click", function(){OnNumberClick(9)});
+button0.addEventListener("click", function () {
+    OnNumberClick(0)
+});
+button1.addEventListener("click", function () {
+    OnNumberClick(1)
+});
+button2.addEventListener("click", function () {
+    OnNumberClick(2)
+});
+button3.addEventListener("click", function () {
+    OnNumberClick(3)
+});
+button4.addEventListener("click", function () {
+    OnNumberClick(4)
+});
+button5.addEventListener("click", function () {
+    OnNumberClick(5)
+});
+button6.addEventListener("click", function () {
+    OnNumberClick(6)
+});
+button7.addEventListener("click", function () {
+    OnNumberClick(7)
+});
+button8.addEventListener("click", function () {
+    OnNumberClick(8)
+});
+button9.addEventListener("click", function () {
+    OnNumberClick(9)
+});
 
 
 //Eseménykezelő függgvények
 
 //Műveletek kezelése
-function OnOperandClick(currentOperand){
+function OnOperandClick(currentOperand) {
 
     switch (status) {
         case STATUS_DONE:
-            if (currentOperand=="=") {
+            if (currentOperand == "=") {
                 break;
             }
             status = STATUS_OPERAND;
             SetOperand(currentOperand);
             break;
-    
-        case  STATUS_FIRSTNUM:
-            if (currentOperand=="=") {
+
+        case STATUS_FIRSTNUM:
+            if (currentOperand == "=") {
                 break;
-            } 
+            }
             status = STATUS_OPERAND;
             SetOperand(currentOperand);
             break
 
         case STATUS_OPERAND:
-            if (currentOperand=="=") {
+            if (currentOperand == "=") {
                 break;
             }
             SetOperand(currentOperand);
             break;
 
-        case STATUS_SECONDNUM: 
+        case STATUS_SECONDNUM:
             //számold ki
-            let answer = Math.round(eval(number1 + operand + number2)*1000)/1000;
+            let answer = Math.round(eval(number1 + operand + number2) * 1000) / 1000;
             //berakni az első helyre
             SetNumber1(answer);
             //2. szám ürítése
             SetNumber2(null);
             if (currentOperand == "=") {
-                status= STATUS_DONE
+                status = STATUS_DONE
                 SetOperand(null)
-            }else{
+            } else {
                 SetOperand(currentOperand)
                 status = STATUS_OPERAND;
             }
@@ -110,7 +140,7 @@ function OnOperandClick(currentOperand){
 }
 
 //számok bevitele
-function OnNumberClick(currentNumber){
+function OnNumberClick(currentNumber) {
     //állapot vizsgálat
     switch (status) {
         case STATUS_FIRSTNUM:
@@ -120,17 +150,17 @@ function OnNumberClick(currentNumber){
 
         case STATUS_OPERAND:
             status = STATUS_SECONDNUM;
-        
-        case  STATUS_SECONDNUM:
+
+        case STATUS_SECONDNUM:
             SetNumber2(number2 * 10 + currentNumber);
-            break;   
+            break;
 
         case STATUS_DONE:
             SetNumber1(currentNumber);
             status = STATUS_FIRSTNUM;
-            break;  
+            break;
     }
-    
+
     console.log(status, currentNumber);
 }
 
@@ -139,17 +169,17 @@ function OnNumberClick(currentNumber){
 
 //Értékadó függvények
 //number1
-function SetNumber1(value){
+function SetNumber1(value) {
     number1 = value;
     displayNumber1.innerText = value;
 }
 //number1
-function SetNumber2(value){
+function SetNumber2(value) {
     number2 = value;
     displayNumber2.innerText = value;
 }
 //operand
-function SetOperand(value){
+function SetOperand(value) {
     operand = value;
     displayOperand.innerText = value;
 }
@@ -157,19 +187,40 @@ function SetOperand(value){
 function TorolClick() {
     switch (status) {
         case STATUS_FIRSTNUM:
-            const újérték = Math.floor(number1/10);
+            const újérték = Math.floor(number1 / 10);
             displayNumber1.innerHTML = újérték;
             number1 = újérték;
             break;
 
-            case STATUS_SECONDNUM:
-                const újújérték = Math.floor(number2/10);
-                displayNumber2.innerHTML = újújérték;
-                number2 = újújérték;
-                break;
+        case STATUS_SECONDNUM:
+            let újújérték = Math.floor(number2 / 10);
+            number2 = újújérték;
+            if (újújérték  == 0) {
+                status = STATUS_OPERAND;
+                újújérték = "";
+            }
+            displayNumber2.innerHTML = újújérték;
+            break;
 
+        case STATUS_OPERAND:
+            displayOperand.innerHTML = "";
+            operand = null;
+            status = STATUS_FIRSTNUM;
+
+            break;
+        case STATUS_DONE:
+            number1 = 0 ;
+            number2 = 0 ;
+            operand =null;
+            displayNumber1.innerHTML = 0;
+            displayNumber2.innerHTML = "";
+            displayOperand.innerHTML = "";
+
+            status = STATUS_FIRSTNUM;
+
+            break;
         default:
-            alert("Nemműködik")
+            alert("Nemműködik");
             break;
     }
 }
