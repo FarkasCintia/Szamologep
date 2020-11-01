@@ -19,8 +19,11 @@ html {
   }
 
   .content {
-      width: 500px;
-      height: 700px;
+      width: 300px;
+      height: 350px;
+      text-align: left;
+      background-color: violet;
+      border: 1px solid purple;
   }
 
   #number-buttons-wrapper{
@@ -35,6 +38,3 @@ html {
       margin: 20px;
   }
 
-  .specialbutton2{
-      margin: 20px;
-  }
