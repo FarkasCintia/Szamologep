@@ -24,6 +24,10 @@ let buttonTimes = document.getElementById("buttonTimes");
 let buttonDivide = document.getElementById("buttonDivide");
 let buttonEquals = document.getElementById("buttonEquals");
 const buttonTorol = document.getElementById("buttonTorol");
+const buttonAlapHelyzet = document.getElementById("buttonAlapHelyzet");
+const buttonGyökvonás = document.getElementById("buttonGyökvonás");
+const buttonNégyzet = document.getElementById("buttonNégyzet");
+const buttonReciprok = document.getElementById("buttonReciprok");
 
 
 //szám gombok
@@ -56,6 +60,16 @@ buttonEquals.addEventListener("click", function () {
     OnOperandClick("=")
 });
 buttonTorol.addEventListener("click", TorolClick);
+
+buttonAlapHelyzet.addEventListener("click", AlapHelyzetClick);
+
+buttonGyökvonás.addEventListener("click", GyökvonásClick);
+
+buttonNégyzet.addEventListener("click", NégyzetClick);
+
+buttonReciprok.addEventListener("click", RecipokClick);
+
+
 
 //number click
 button0.addEventListener("click", function () {
@@ -209,18 +223,88 @@ function TorolClick() {
 
             break;
         case STATUS_DONE:
-            number1 = 0 ;
-            number2 = 0 ;
-            operand =null;
-            displayNumber1.innerHTML = 0;
-            displayNumber2.innerHTML = "";
-            displayOperand.innerHTML = "";
-
-            status = STATUS_FIRSTNUM;
-
+            AlapHelyzetClick();
             break;
         default:
             alert("Nemműködik");
             break;
     }
 }
+
+function AlapHelyzetClick(){
+    number1 = 0 ;
+    number2 = 0 ;
+    operand =null;
+    displayNumber1.innerHTML = 0;
+    displayNumber2.innerHTML = "";
+    displayOperand.innerHTML = "";
+
+    status = STATUS_FIRSTNUM;
+}
+
+function GyökvonásClick() {
+    switch (status) {
+        case STATUS_FIRSTNUM:
+        case STATUS_DONE:
+            const gyok = Math.sqrt(number1);
+            displayNumber1.innerHTML = gyok;
+            number1 = gyok;
+            
+            break;
+
+        case STATUS_SECONDNUM:
+            const gyok2 = Math.sqrt(number2);
+            displayNumber2.innerHTML = gyok2;
+            number2 = gyok2;
+            
+            break;
+
+        default:
+            break;
+    }
+}
+
+function NégyzetClick() {
+    switch (status) {
+        case STATUS_FIRSTNUM:
+        case STATUS_DONE:
+            const négyzet = Math.pow(number1, 2);
+            displayNumber1.innerHTML = négyzet;
+            number1 = négyzet;
+            
+            break;
+
+        case STATUS_SECONDNUM:
+            const négyzet2 = Math.pow(number2, 2);
+            displayNumber2.innerHTML = négyzet2;
+            number2 = négyzet2;
+            
+            break;
+
+        default:
+            break;
+    }
+}
+
+function RecipokClick() {
+    switch (status) {
+        case STATUS_FIRSTNUM:
+        case STATUS_DONE:
+            const recipróka =1 / number1;
+            displayNumber1.innerHTML = recipróka;
+            number1 = recipróka;
+            
+            break;
+
+        case STATUS_SECONDNUM:
+            const recipróka2 =1 / number2;
+            displayNumber2.innerHTML = recipróka2;
+            number2 = recipróka2;
+            
+            break;
+
+        default:
+            break;
+    }
+}
+

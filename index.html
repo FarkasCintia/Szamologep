@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Számológép</title>
     <link rel="stylesheet" href="my.css">
 </head>
+
 <body>
     <h1>Számológép</h1>
-    
+
     <!-- kijelző -->
     <div id="display" class="my-mb-1">
         <span id="displayNumber1">0</span>
@@ -38,11 +40,33 @@
         <button id="buttonDivide">/</button>
         <button id="buttonEquals">=</button>
 
-        <button id="buttonTorol"> 
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-backspace-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
-          </svg> 
+        <button id="buttonTorol">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-backspace-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
+            </svg>
         </button>
+
+        <button id="buttonAlapHelyzet">C</button>
+        <button id="buttonGyökvonás">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="12px" height="12px" viewBox="0 0 131.549 131.549"
+                style="enable-background:new 0 0 131.549 131.549;" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M7.308,89.374h3.713l23.387,30.344c1.391,1.81,3.534,2.849,5.788,2.849c0.263,0,0.533-0.015,0.799-0.043
+			c2.533-0.277,4.741-1.858,5.822-4.168L91.131,23.6h33.109c4.037,0,7.309-3.272,7.309-7.308c0-4.037-3.271-7.309-7.309-7.309H86.48
+			c-2.838,0-5.418,1.642-6.621,4.212l-41.201,88.097L20.405,77.604c-1.381-1.795-3.521-2.848-5.788-2.848H7.308
+			C3.272,74.756,0,78.027,0,82.065S3.272,89.374,7.308,89.374z" />
+                    </g>
+                </g>
+            </svg>
+        </button>
+
+        <button id="buttonNégyzet">x<sup>2</sup></button>
+        <button id="buttonReciprok"><sup>1</sup>/<sub>x</sub></button>
+
     </div>
 
 
@@ -50,4 +74,5 @@
 
     <script src="my.js"></script>
 </body>
+
 </html>
