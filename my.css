@@ -1,3 +1,40 @@
 .my-mb-1 {
     margin-bottom: 1rem;
 }
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background-color: black;
+    color:white;
+    text-align: left;
+    font-size: 25px;
+  }
+
+  .content {
+      width: 500px;
+      height: 700px;
+  }
+
+  #number-buttons-wrapper{
+    margin: 20px;
+  }
+
+  #operand-buttons-wrapper{
+      margin: 20px;
+  }
+
+  .specialbutton{
+      margin: 20px;
+  }
+
+  .specialbutton2{
+      margin: 20px;
+  }
