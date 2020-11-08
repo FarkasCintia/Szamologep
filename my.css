@@ -38,3 +38,12 @@ html {
       margin: 20px;
   }
 
+#buttons{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+    #buttons button{
+        height: 3rem;
+        margin: 0.15rem;
+    }
